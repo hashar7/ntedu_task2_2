@@ -1,0 +1,91 @@
+                Java(tm) Secure Socket Extension
+            for the JavaTM 2 Standard Edition, v5.0
+
+                        Sample Code
+
+                          README
+
+----------------------------------------------------------------------
+CONTENTS
+----------------------------------------------------------------------
+	- Introduction
+	- Sample KeyStores
+	- Code Examples
+	- Troubleshooting
+
+----------------------------------------------------------------------
+Introduction
+----------------------------------------------------------------------
+This JSSE sample code bundle provides some simple examples of how
+the JSSE can be used to secure communications in the Java(tm) network
+environment.
+
+The samples do require some familiarity with Java and the JSSE API, so
+please consult the appropriate documentation for more information.
+
+JDK:	http://java.sun.com/doc/
+
+JSSE:	Documentation for the JSSE API can be found in Sun's
+	JDK implementation or documentation bundles, or at
+	http://java.sun.com/j2se/1.5.0/docs/guide/security/jsse/JSSERefGuide.html
+
+	If you use a JSSE implementation from a vendor other than Sun,
+	also consult that JSSE implementation's documentation.  Follow any
+	instructions given by the vendor as to how to configure the
+	security provider, set the classpaths (if necessary), enable the
+	https protocol handler, define HTTPS proxy servers, and so on.
+
+----------------------------------------------------------------------
+Sample Truststores
+----------------------------------------------------------------------
+
+This bundle includes sample KeyStore files that are used with
+the sample code.  They are stored in the "JKS" KeyStore format,
+which is the default format used by Sun's JDK implementation.  (If
+another KeyStore format is desired, the JDK will need to be configured
+to recognize the new default format.)
+
+JSSE uses the following certificate KeyStore files to authenticate the
+clients and servers.
+
+*/testkeys      These files are used by the code samples as the source
+		of public/private key and certificate material.  In the
+		client program directories, the testkeys files contains
+		the certificate entry for the Java mascot "Duke".  In
+		the server program directories (./sockets/server and
+		rmi), the file contains a certificate entry for the
+		server "localhost".
+
+		The sample code expects the testkeys file to be in the
+		current working directory.
+
+		NOTE:  These are very simple certificates and are not
+		appropriate for a production environment, but they
+		should be sufficient for running the samples here.
+
+		The password for these keystores is:  passphrase
+
+samplecacerts	This truststore file is very similar to the stock
+		JDK cacerts file, in that it contains trust
+		certificates from several vendors.  It also contains
+		the trusted certificates from "Duke" and "localhost"
+		above.
+
+		The password for this keystore is the same as the
+		JDK cacert's initial password:  changeit
+
+		Please see your provider's documentation for
+		how to configure the location of your trusted cert
+		file.
+
+		NOTES FOR RUNNING WITH SUN's JDK:
+		---------------------------------
+
+		    Users of the Sun JDK can specify the location of
+		    the truststore by using one of the following
+		    methods (and are described more fully in the Sun
+		    JDK JSSE Reference Guide):
+
+		    1.  System properties:
+
+			java 
